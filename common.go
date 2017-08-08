@@ -607,6 +607,10 @@ type Config struct {
 	// for new tickets and any subsequent keys can be used to decrypt old
 	// tickets.
 	sessionTicketKeys []ticketKey
+	// UseExtendedMasterSecret indicates whether or not the connection
+	// should use the extended master secret computation if available
+	UseExtendedMasterSecret bool
+
 }
 
 // ticketKeyNameLen is the number of bytes of identifier that is prepended to
@@ -676,6 +680,7 @@ func (c *Config) Clone() *Config {
 		Max0RTTDataSize:             c.Max0RTTDataSize,
 		SessionTicketSealer:         c.SessionTicketSealer,
 		sessionTicketKeys:           sessionTicketKeys,
+		UseExtendedMasterSecret:     c.UseExtendedMasterSecret,
 	}
 }
 
