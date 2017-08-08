@@ -435,6 +435,7 @@ func (m *clientHelloMsg) unmarshal(data []byte) alert {
 	m.pskKeyExchangeModes = nil
 	m.earlyData = false
 	m.extendedMSSupported = false
+
 	if len(data) == 0 {
 		// ClientHello is optionally followed by extension data
 		return alertSuccess
